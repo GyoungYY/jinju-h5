@@ -38,7 +38,6 @@
             layout="total, prev, pager, next, jumper"
             :total="total" class="pagination">
         </el-pagination>
-        <TabbarNav></TabbarNav>
     </div>
 </template>
 
