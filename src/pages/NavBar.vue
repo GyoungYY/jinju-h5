@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-view></router-view>
+        <router-view class="content-body"></router-view>
         <div class="footer">
             <span class="footer-span">首页</span>
             <span class="footer-span">我的</span>
@@ -9,26 +9,32 @@
 </template>
 
 <script>
-    export default{
-        data(){
-            return{
-
-            }
+    export default {
+        data() {
+            return {}
         }
     }
 </script>
 
 <style scoped>
-    .footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    .content-body{
+        margin-bottom:50px;
     }
-    .footer-span{
+    .footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+    }
+
+    .footer-span {
         display: inline-block;
-        width:50%;
+        width: 50%;
+        padding: 10px;
         text-align: center;
-        font-size:16px;
+        font-size: 16px;
         background-color: #fff;
     }
 </style>
