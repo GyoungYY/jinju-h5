@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import JinjuList from '@/pages/JinjuList'
-import TabbarNav from '@/pages/TabbarNav'
 import NavBar from '@/pages/NavBar'
+import MyList from '@/pages/MyList'
 
 Vue.use(Router)
 
@@ -23,14 +23,13 @@ export default new Router({
                     path: 'JinjuList',
                     name: 'JinjuList',
                     component: JinjuList
-                }
+                },
+                {
+                    path: 'MyList',
+                    name: 'MyList',
+                    component: MyList
+                },
             ]
-        },
-
-        {
-            path: '/home',
-            name: 'JinjuList',
-            component: JinjuList
         },
 
     ]
