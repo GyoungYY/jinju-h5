@@ -27,7 +27,7 @@ export default {
 
     //登出
     logout(id) {
-        return fetch.post(API + '/user/logout/'+id).then(response => {
+        return fetch.post(API + '/user/logout/' + id).then(response => {
             if (response.code === 0) {
                 return response.data;
             } else {
@@ -57,4 +57,27 @@ export default {
             }
         })
     },
+
+    //上传用户头像
+    uploadUserPhoto(params) {
+        return fetch.post(API + '/user/updatePhotoUrl', params).then(response => {
+            if (response.code === 0) {
+                return response.message;
+            } else {
+                return Promise.reject(response.message);
+            }
+        })
+    },
+
+    //获取地区列表
+    getAreaList(params) {
+        return fetch.get(API + '/area/list', params).then(response => {
+            if (response.code === 0) {
+                return response.data;
+            } else {
+                return Promise.reject(response.message);
+            }
+        })
+    },
+
 }

@@ -217,7 +217,7 @@ export default {
 
     //进入用户个人主页
     gotoUserPage(id) {
-      this.$router.push({ path: "/index/userPage/" + id });
+      this.$router.push({ path: "/index/UserPage/" + id });
     }
   }
 };

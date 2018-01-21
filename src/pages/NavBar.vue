@@ -5,9 +5,14 @@
         </div>
         <router-view class="content-body"></router-view>
         <div class="footer">
-            <span class="footer-span" @click="clickTab('home')"
-                  :class="{'active-tab': activeName === 'JinjuList'}">首页</span>
-            <span class="footer-span" @click="clickTab('my')" :class="{'active-tab': activeName === 'MyList'}">我的</span>
+            <div class="footer-span" :class="{'active-tab': activeName === 'JinjuList'}" @click="clickTab('JinjuList')">
+                <span class="glyphicon glyphicon-home" style="display: block;padding-bottom:4px;"></span>
+                <span style="font-size:12px;">首页</span>
+            </div>
+            <div class="footer-span" :class="{'active-tab': activeName === 'MyList'}" @click="clickTab('MyList')">
+                <span class="glyphicon glyphicon-user" style="display: block;padding-bottom:4px;"></span>
+                <span style="font-size:12px;">我的</span>
+            </div>
         </div>
     </div>
 </template>
@@ -16,17 +21,19 @@
     export default {
         data() {
             return {
-                tabName: ['JinjuList', 'MyList',],
+                activeName: sessionStorage.getItem("activeName") || "JinjuList",
             }
         },
 
         methods: {
 
             //切换底部tab
-            clickTab(index) {
-                if (index === 'home') {
+            clickTab(key) {
+                sessionStorage.setItem("activeName", key);
+                this.activeName = key;
+                if (key === 'JinjuList') {
                     this.$router.push({path: '/index/JinjuList'});
-                } else if (index === 'my') {
+                } else if (key === 'MyList') {
                     this.$router.push({path: '/index/MyList'});
                 }
             },
@@ -37,15 +44,6 @@
             }
         },
 
-        computed: {
-            activeName: function () {
-                for (let name of this.tabName) {
-                    if (this.$route.path.indexOf(name) >= 0) {
-                        return name;
-                    }
-                }
-            }
-        }
     }
 </script>
 
@@ -60,7 +58,7 @@
     }
 
     .content-body {
-        margin-bottom: 50px;
+        margin-bottom: 60px;
     }
 
     .footer {
@@ -77,7 +75,7 @@
     .footer-span {
         display: inline-block;
         width: 50%;
-        padding: 10px;
+        padding: 6px;
         text-align: center;
         font-size: 16px;
     }

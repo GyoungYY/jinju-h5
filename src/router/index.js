@@ -7,6 +7,8 @@ import MyList from '@/pages/MyList'
 import JinjuList from '@/pages/JinjuList'
 import JinjuDetail from '@/pages/JinjuDetail'
 
+import UserPage from '@/pages/UserPage'
+
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +37,11 @@ export default new Router({
                     path: 'MyList',
                     name: 'MyList',
                     component: MyList
+                },
+                {
+                    path: 'UserPage/:id',
+                    name : 'UserPage',
+                    component: UserPage
                 },
             ]
         },
