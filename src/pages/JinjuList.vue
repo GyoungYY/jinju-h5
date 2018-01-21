@@ -95,7 +95,7 @@
                         item.typeShow = this.typeEnum[item.type];
                         item.itemTagClass = this.tagClass[item.type];
                         item.createTimeShow = formatTime.getFormatTime(item.createTime);
-                        item.photoUrl = "../../static/img/photo" + item.userId % 4 + ".jpeg";
+                        // item.photoUrl = "../../static/img/photo" + item.userId % 4 + ".jpeg";
                         return item;
                     });
                     data.list.forEach((item) => {
@@ -114,6 +114,7 @@
 
             //进入金句详情
             gotoDetail(id) {
+                this.$router.push({path: '/index/JinjuDetail/' + id});
             },
 
             //点击赞按钮

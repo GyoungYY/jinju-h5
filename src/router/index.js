@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import JinjuList from '@/pages/JinjuList'
 import NavBar from '@/pages/NavBar'
 import MyList from '@/pages/MyList'
+
+import JinjuList from '@/pages/JinjuList'
+import JinjuDetail from '@/pages/JinjuDetail'
 
 Vue.use(Router)
 
@@ -11,18 +13,23 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/main/JinjuList'
+            redirect: '/index/JinjuList'
         },
 
         {
-            path: '/main',
-            name: 'main',
+            path: '/index',
+            name: 'index',
             component: NavBar,
             children: [
                 {
                     path: 'JinjuList',
                     name: 'JinjuList',
                     component: JinjuList
+                },
+                {
+                    path: 'JinjuDetail/:id',
+                    name : 'JinjuDetail',
+                    component: JinjuDetail
                 },
                 {
                     path: 'MyList',

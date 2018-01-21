@@ -25,9 +25,9 @@
             //切换底部tab
             clickTab(index) {
                 if (index === 'home') {
-                    this.$router.push({path: '/main/JinjuList'});
+                    this.$router.push({path: '/index/JinjuList'});
                 } else if (index === 'my') {
-                    this.$router.push({path: '/main/MyList'});
+                    this.$router.push({path: '/index/MyList'});
                 }
             },
 
