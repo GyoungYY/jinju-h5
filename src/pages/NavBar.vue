@@ -22,6 +22,7 @@
         data() {
             return {
                 activeName: sessionStorage.getItem("activeName") || "JinjuList",
+                userInfo: JSON.parse(sessionStorage.getItem("userInfo")),
             }
         },
 
@@ -31,10 +32,13 @@
             clickTab(key) {
                 sessionStorage.setItem("activeName", key);
                 this.activeName = key;
+                this.userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
                 if (key === 'JinjuList') {
                     this.$router.push({path: '/index/JinjuList'});
-                } else if (key === 'MyList') {
+                } else if (key === 'MyList' && this.userInfo) {
                     this.$router.push({path: '/index/MyList'});
+                } else if (key === 'MyList' && !this.userInfo) {
+                    this.$router.push({path: '/index/Login'});
                 }
             },
 

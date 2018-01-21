@@ -1,35 +1,83 @@
 <template>
-    <div>
+    <div class="my-container">
         <div class="photo-div">
-            <img src="../../static/img/photo0.jpeg" alt="" class="my-photo">
+            <img :src="infoDetail.photoUrl" alt="" class="my-photo">
+            <div style="color:#f90;font-size:18px;">{{infoDetail.username}}</div>
+            <div style="color: #999;">{{joinTime}}入网</div>
+            <div style="color: #999;">在网时长{{diffDay || '0小时'}}</div>
         </div>
-        <mt-cell title="个人信息"></mt-cell>
-        <mt-cell title="发表金句"></mt-cell>
-        <mt-cell title="退出登录"></mt-cell>
+        <div class="item-cell">个人信息</div>
+        <div class="item-cell">发表金句</div>
+        <div class="item-cell" @click="logout()">退出登录</div>
     </div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {}
-        },
+import UserInterface from "@/interface/UserInterface";
+import formatTime from "@/common/js/formatTime";
 
-        methods: {}
+export default {
+  data() {
+    return {
+      userInfo: JSON.parse(sessionStorage.getItem("userInfo")),
+      infoDetail: {}
+    };
+  },
+
+  mounted() {
+    this.getUserInfo();
+  },
+
+  methods: {
+    //获取用户信息
+    getUserInfo() {
+      UserInterface.getUserInfo(this.userInfo.userId)
+        .then(data => {
+          this.infoDetail = data;
+          this.joinTime = formatTime.getLocalTime(this.infoDetail.createTime);
+          this.diffDay = formatTime.getDiffDay(this.infoDetail.createTime);
+        })
+        .catch(reason => {
+          this.$message.error(reason);
+        });
+    },
+
+    //退出登录
+    logout() {
+      sessionStorage.removeItem("userInfo");
+      sessionStorage.removeItem("activeName");
+      UserInterface.logout(this.userInfo.userId)
+        .then(data => {
+          this.$message.success("退出成功");
+          this.$router.push({ path: "/index/Login" });
+        })
+        .catch(reason => {
+          this.$message.error(reason);
+        });
     }
+  }
+};
 </script>
 
 <style scoped>
-    .photo-div {
-        text-align: center;
-        padding: 20px;
-        background-color: #fff;
-    }
+.my-container {
+  background-color: #fff;
+}
 
-    .my-photo {
-        width: 90px;
-        height: 90px;
-        border-radius: 45px;
-        border: 1px solid #ddd;
-    }
+.photo-div {
+  text-align: center;
+  padding: 20px;
+}
+
+.my-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  border: 1px solid #ddd;
+}
+
+.item-cell {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+}
 </style>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import NavBar from '@/pages/NavBar'
 import MyList from '@/pages/MyList'
+import Login from '@/pages/Login'
 
 import JinjuList from '@/pages/JinjuList'
 import JinjuDetail from '@/pages/JinjuDetail'
@@ -43,6 +44,11 @@ export default new Router({
                     name : 'UserPage',
                     component: UserPage
                 },
+                {
+                    path: 'Login',
+                    name:　'Login',
+                    component: Login
+                }
             ]
         },
 
