@@ -51,6 +51,9 @@
                 }
             };
         },
+        mounted(){
+            scrollTo(0, 0);
+        },
         methods: {
 
             //登录接口
