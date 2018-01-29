@@ -5,11 +5,11 @@
         </div>
         <router-view class="content-body"></router-view>
         <div class="footer">
-            <div class="footer-span" :class="{'active-tab': activeName === 'JinjuList'}" @click="clickTab('JinjuList')">
+            <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'JinjuList'}" @click="clickTab('JinjuList')">
                 <span class="glyphicon glyphicon-home" style="display: block;padding-bottom:4px;"></span>
                 <span style="font-size:12px;">首页</span>
             </div>
-            <div class="footer-span" :class="{'active-tab': activeName === 'MyList'}" @click="clickTab('MyList')">
+            <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'MyList'}" @click="clickTab('MyList')">
                 <span class="glyphicon glyphicon-user" style="display: block;padding-bottom:4px;"></span>
                 <span style="font-size:12px;">我的</span>
             </div>
@@ -21,7 +21,6 @@
     export default {
         data() {
             return {
-                activeName: sessionStorage.getItem("activeName") || "JinjuList",
                 userInfo: JSON.parse(sessionStorage.getItem("userInfo")),
             }
         },
@@ -30,8 +29,7 @@
 
             //切换底部tab
             clickTab(key) {
-                sessionStorage.setItem("activeName", key);
-                this.activeName = key;
+                this.$store.commit('changeTab',key);
                 this.userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
                 if (key === 'JinjuList') {
                     this.$router.push({path: '/index/JinjuList'});

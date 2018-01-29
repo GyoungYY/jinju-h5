@@ -61,7 +61,7 @@
                 UserInterface.login(this.params).then(data => {
                     this.$message.success('报告主人，您已成功登陆～');
                     sessionStorage.setItem('userInfo', JSON.stringify(data));
-                    sessionStorage.setItem("activeName", 'JinjuList');
+                    this.$store.commit('changeTab','JinjuList');
                     this.$router.push({path: '/index/JinjuList'});
                 }).catch(reason => {
                     this.$message.error(reason);
