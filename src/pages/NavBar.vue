@@ -1,13 +1,21 @@
 <template>
     <div>
-        <div class="header">
+        <!-- <div class="header">
             <span class="el-icon-arrow-left" @click="goBack()">返回</span>
-        </div>
+        </div> -->
         <router-view class="content-body"></router-view>
         <div class="footer">
             <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'JinjuList'}" @click="clickTab('JinjuList')">
                 <span class="glyphicon glyphicon-home" style="display: block;padding-bottom:4px;"></span>
                 <span style="font-size:12px;">首页</span>
+            </div>
+            <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'articleList'}" @click="clickTab('articleList')">
+                <span class="glyphicon glyphicon-list-alt" style="display: block;padding-bottom:4px;"></span>
+                <span style="font-size:12px;">美文</span>
+            </div>
+            <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'chat'}" @click="clickTab('articleList')">
+                <span class="glyphicon glyphicon-envelope" style="display: block;padding-bottom:4px;"></span>
+                <span style="font-size:12px;">消息</span>
             </div>
             <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'MyList'}" @click="clickTab('MyList')">
                 <span class="glyphicon glyphicon-user" style="display: block;padding-bottom:4px;"></span>
@@ -37,6 +45,8 @@
                     this.$router.push({path: '/index/MyList'});
                 } else if (key === 'MyList' && !this.userInfo) {
                     this.$router.push({path: '/index/Login'});
+                } else if(key === 'articleList'){
+                    this.$router.push({path: '/index/articleList'});
                 }
             },
 
@@ -76,7 +86,7 @@
 
     .footer-span {
         display: inline-block;
-        width: 50%;
+        width: 25%;
         padding: 6px;
         text-align: center;
         font-size: 16px;

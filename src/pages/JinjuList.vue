@@ -82,10 +82,7 @@ export default {
   methods: {
     //获取金句列表
     getJinjuList(page, type) {
-      if (
-        page != 1 &&
-        page > Math.ceil(this.total / this.searchParams.pageSize)
-      ) {
+      if (page != 1 &&page > Math.ceil(this.total / this.searchParams.pageSize)) {
         return;
       }
       this.searchParams.pageIndex = page;
@@ -205,12 +202,11 @@ export default {
 
 <style scoped>
 .list-container {
-  min-height: 750px;
-  max-width: 1000px;
+    min-height: 700px;
 }
 
 .box-card {
-  margin-bottom: 20px;
+  margin: 10px 0;
 }
 
 .item-username {

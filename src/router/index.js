@@ -10,6 +10,9 @@ import JinjuDetail from '@/pages/JinjuDetail'
 
 import UserPage from '@/pages/UserPage'
 
+import ArticleList from '@/pages/ArticleList'
+import ArticleDetail from '@/pages/ArticleDetail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -48,6 +51,16 @@ export default new Router({
                     path: 'Login',
                     name:　'Login',
                     component: Login
+                },
+                {
+                    path: 'articleList',
+                    name: 'articleList',
+                    component: ArticleList
+                },
+                {
+                    path: 'articleDetail/:id',
+                    name: 'articleDetail',
+                    component: ArticleDetail
                 }
             ]
         },
