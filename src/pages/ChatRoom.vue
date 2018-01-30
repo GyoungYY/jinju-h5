@@ -26,7 +26,7 @@
         </div>
 
         <div class="send-div">
-            <el-input v-model="sendText" @keyup.enter.native="sendMessage()"></el-input>
+            <el-input type="textarea" :autosize="{ minRows: 1, maxRows: 3}"v-model="sendText" @keyup.enter.native="sendMessage()"></el-input>
         </div>
     </div>
 </template>
