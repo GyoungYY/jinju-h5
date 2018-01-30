@@ -6,16 +6,7 @@
         <div class="box-card" v-for="(item,index) in meiwenList" :key="item.index">
             <div class="item-content" @click="gotoDetail(item.meiwenId)">
                 <div style="margin-right:120px;min-height:120px;">
-                    <!-- <div class="box-header" style="display:flex;">
-                <img :src="item.photoUrl" alt="" style="width: 40px;height: 40px;border-radius:20px;cursor:pointer;" @click="gotoUserPage(item.userId)">
-                <div style="padding-left:10px;">
-                    <div style="padding-bottom:3px;">
-                        <span class="item-username">{{item.username}}</span>
-                    </div>
-                    <span style="color:#aaa;">{{item.createTimeShow}}</span>
-                </div>
-                </div> -->
-                    <h4 style="margin:0 20px;padding:20px 0 10px;">{{item.title}}</h4>
+                    <h4 style="margin:0 0 0 20px;padding:20px 0 10px;">{{item.title}}</h4>
                     <div class="meiwen-summary">{{item.summary}}</div>
                 </div>
                 <img :src="item.coverImgUrl" alt="" class="item-img">
@@ -192,7 +183,7 @@ export default {
 }
 
 .meiwen-summary {
-  margin: 0 20px;
+  margin: 0 0 0 20px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -202,10 +193,10 @@ export default {
 
 .item-img {
   position: absolute;
-  right: 20px;
+  right: 15px;
   top: 15px;
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 4px;
 }
 
