@@ -7,7 +7,7 @@
             </div>
             <div class="meiwen-author">
                 <span style="padding: 0 20px;">作者：{{articleDetail.username}}</span>
-                <span style="padding: 0 20px;">阅读量：{{articleDetail.browseCount}}</span>
+                <span style="padding: 0 20px;">阅读量：{{articleDetail.browseCount + 1}}</span>
             </div>
             <div class="meiwen-summary">
             {{articleDetail.summary}}
