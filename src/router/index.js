@@ -13,6 +13,8 @@ import UserPage from '@/pages/UserPage'
 import ArticleList from '@/pages/ArticleList'
 import ArticleDetail from '@/pages/ArticleDetail'
 
+import ChatRoom from '@/pages/ChatRoom'
+
 Vue.use(Router)
 
 export default new Router({
@@ -61,6 +63,11 @@ export default new Router({
                     path: 'articleDetail/:id',
                     name: 'articleDetail',
                     component: ArticleDetail
+                },
+                {
+                    path: 'chatroom',
+                    name: 'chatroom',
+                    component: ChatRoom
                 }
             ]
         },

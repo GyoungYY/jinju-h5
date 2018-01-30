@@ -41,7 +41,7 @@
         <div style="padding:10px;text-align: center;background-color: #fff;color:#409EFF;"
              @click="getJinjuList(searchParams.pageIndex + 1)" v-if="!allLoaded">加载更多...
         </div>
-        <div style="text-align: center;color: #999;" v-if="allLoaded">已经到底啦～</div>
+        <div style="text-align: center;color: #999;padding-bottom: 6px;" v-if="allLoaded">已经到底啦～</div>
 
     </div>
 </template>

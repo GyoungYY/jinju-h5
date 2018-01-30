@@ -13,7 +13,7 @@
                 <span class="glyphicon glyphicon-list-alt" style="display: block;padding-bottom:4px;"></span>
                 <span style="font-size:12px;">美文</span>
             </div>
-            <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'chat'}" @click="clickTab('articleList')">
+            <div class="footer-span" :class="{'active-tab': $store.state.activeName === 'chatroom'}" @click="clickTab('chatroom')">
                 <span class="glyphicon glyphicon-envelope" style="display: block;padding-bottom:4px;"></span>
                 <span style="font-size:12px;">消息</span>
             </div>
@@ -45,6 +45,8 @@
                     this.$router.push({path: '/index/MyList'});
                 } else if (key === 'MyList' && !this.userInfo) {
                     this.$router.push({path: '/index/Login'});
+                } else if(key === 'chatroom'){
+                    this.$router.push({path: '/index/chatroom'});
                 } else if(key === 'articleList'){
                     this.$router.push({path: '/index/articleList'});
                 }
@@ -70,7 +72,7 @@
     }
 
     .content-body {
-        margin-bottom: 60px;
+        margin-bottom: 54px;
     }
 
     .footer {
