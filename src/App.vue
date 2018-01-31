@@ -20,8 +20,10 @@
     body {
         margin: 0 auto;
         color: #000;
-        /* background-color: #cf9; */
-        /* background-color: #fff; */
         background-color: #e8e8e8 !important;
+    }
+
+    img{
+        max-width: 100%;
     }
 </style>
