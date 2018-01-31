@@ -252,7 +252,7 @@ export default {
 .meiwen-summary {
   padding: 12px 15px;
   background-color: #eee;
-  margin: 10px;
+  margin: 10px 0;
   line-height: 1.8;
   border-radius: 5px;
 }
@@ -294,7 +294,7 @@ export default {
 }
 
 .comment-area {
-  padding: 20px;
+  padding: 15px;
   background-color: #fff;
 }
 </style>
