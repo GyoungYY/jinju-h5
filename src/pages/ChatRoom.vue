@@ -52,7 +52,8 @@
                 searchParams: {
                     id: '',
                     limit: 20
-                }
+                },
+                isFirstGet: true,
             };
         },
 
@@ -103,7 +104,7 @@
                 };
             },
 
-            //获取消息列表
+            //获取消息
             getMessageList(event) {
                 let result = JSON.parse(event.data);
                 console.log(result);
@@ -111,6 +112,10 @@
                 this.messageList.push(result);
                 if (result.type == "2") {
                     this.userList = result.userList;
+                }
+                if(this.isFirstGet){
+                    this.getHistoryMessage();
+                    this.isFirstGet = false;
                 }
                 setTimeout(function () {
                     $("#messageList").scrollTop($("#messageList")[0].scrollHeight);
