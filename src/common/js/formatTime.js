@@ -56,6 +56,51 @@ let timeUtils = {
         return year + "/" + month + "/" + date + " " + hour + ":" + minute;
     },
 
+    //根据毫秒获取此时时间
+    getChatTime(millisecond) {
+        var now = new Date(millisecond);
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        if (month < 10) {
+            month = "0" + month;
+        }
+        var date = now.getDate();
+        if (date < 10) {
+            date = "0" + date;
+        }
+
+        //现在时间
+        var nowTime = new Date();
+        var nowyYear = nowTime.getFullYear();
+        var nowMonth = nowTime.getMonth() + 1;
+        if (nowMonth < 10) {
+            nowMonth = "0" + nowMonth;
+        }
+        var nowDate = nowTime.getDate();
+        if (nowDate < 10) {
+            nowDate = "0" + nowDate;
+        }
+
+        var hour = now.getHours();
+        if (hour < 10) {
+            hour = "0" + hour;
+        }
+        var minute = now.getMinutes();
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+        var second = now.getSeconds();
+        if (second < 10) {
+            second = "0" + second;
+        }
+
+        let result = '';
+        if (year != nowyYear || month != nowMonth || date != nowDate) {
+            result = year + "/" + month + "/" + date + " ";
+        }
+        return result + hour + ":" + minute + ":" + second;
+    },
+
     //返回多少天多少小时
     getDiffDay(dateTimeStamp) {
         let minute = 1000 * 60;
