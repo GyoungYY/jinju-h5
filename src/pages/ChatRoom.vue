@@ -152,7 +152,7 @@
                 ChatroomInterface.getHistoryMessage(this.searchParams)
                     .then(data => {
                         this.dealHistoryMessage(data);
-                        if (data.length < this.searchParams.pageSize) {
+                        if (data.length < this.searchParams.limit) {
                             this.showHistoryMessage = false;
                         }
                     })
