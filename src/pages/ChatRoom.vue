@@ -29,7 +29,7 @@
         </div>
 
         <div class="send-div">
-            <el-input type="textarea" :autosize="{ minRows: 1, maxRows: 3}"v-model="sendText" @keyup.enter.native="sendMessage()"></el-input>
+            <el-input type="textarea" :autosize="{ minRows: 1, maxRows: 3}"v-model="sendText" @keyup.enter.native="sendMessage()" placeholder="光标在输入框内才能发送哦～"></el-input>
         </div>
     </div>
 </template>
