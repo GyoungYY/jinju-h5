@@ -10,6 +10,9 @@
                 <span class="glyphicon glyphicon-time" style="padding-right:4px;position: static;"></span>查看更多消息
             </div>
             <div v-for="item in messageList">
+                <div v-if="item.isShowTime" style="text-align:center;color:#999;padding:8px;">
+                    {{item.createTimeShow}}
+                </div>
                 <div v-if="item.type == 2" style="text-align:center;color:#f90;padding:8px;">{{item.message}}</div>
                 <div :class="{'self-message' : item.userId == userId}" v-if="item.type == 1">
                     <div :class="{'self-username' : item.userId == userId}">
@@ -34,6 +37,7 @@
 <script>
     import ChatroomInterface from "@/interface/ChatroomInterface";
     import scrollFunc from "@/common/js/scrollFunc";
+    import formatTime from "@/common/js/formatTime";
 
     export default {
         data() {
@@ -46,18 +50,18 @@
                 userId: "",
                 showHistoryMessage: true,
                 searchParams: {
-                    pageIndex: 1,
-                    pageSize: 20
+                    id: '',
+                    limit: 20
                 }
             };
         },
 
         mounted() {
-            if (!this.userInfo) {
+            this.userId = this.userInfo ? this.userInfo.userId : sessionStorage.getItem("visitorId");
+            if (!this.userId) {  //游客初次
                 this.getVisitorId();
-            } else {
-                this.userId = this.userInfo.userId;
-                this.initWebSocket(this.userInfo.userId);
+            } else {  //游客二次或登录用户
+                this.initWebSocket(this.userId);
             }
             scrollFunc.gotoTop();
         },
@@ -75,6 +79,7 @@
                     .then(data => {
                         this.userId = data;
                         this.initWebSocket(data);
+                        sessionStorage.setItem("visitorId", data);
                     })
                     .catch(reason => {
                         this.$message.error(reason);
@@ -102,6 +107,7 @@
             getMessageList(event) {
                 let result = JSON.parse(event.data);
                 console.log(result);
+                result.createTimeShow = formatTime.getChatTime(result.createTime);
                 this.messageList.push(result);
                 if (result.type == "2") {
                     this.userList = result.userList;
@@ -142,10 +148,10 @@
 
             //获取历史消息
             getHistoryMessage() {
+                this.searchParams.id = this.messageList[0].id;
                 ChatroomInterface.getHistoryMessage(this.searchParams)
                     .then(data => {
                         this.dealHistoryMessage(data);
-                        this.searchParams.pageIndex++;
                         if (data.length < this.searchParams.pageSize) {
                             this.showHistoryMessage = false;
                         }
@@ -158,7 +164,9 @@
             //处理历史消息
             dealHistoryMessage(data) {
                 for (let i = 0; i < data.length; i++) {
-                    this.messageList.unshift(JSON.parse(data[i]));
+                    let temp = data[i];
+                    temp.createTimeShow = formatTime.getChatTime(temp.createTime);
+                    this.messageList.unshift(temp);
                 }
             },
 

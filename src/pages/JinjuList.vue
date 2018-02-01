@@ -114,7 +114,7 @@ export default {
 
     //进入金句详情
     gotoDetail(id) {
-      this.$router.push({ path: "/index/JinjuDetail/" + id });
+      this.$router.push({ path: "/index/jinjuDetail/" + id });
     },
 
     //点击赞按钮

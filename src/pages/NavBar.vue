@@ -40,7 +40,7 @@
                 this.$store.commit('changeTab',key);
                 this.userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
                 if (key === 'JinjuList') {
-                    this.$router.push({path: '/index/JinjuList'});
+                    this.$router.push({path: '/index/jinjuList'});
                 } else if (key === 'MyList' && this.userInfo) {
                     this.$router.push({path: '/index/MyList'});
                 } else if (key === 'MyList' && !this.userInfo) {

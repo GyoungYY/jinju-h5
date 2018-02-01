@@ -21,7 +21,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/index/JinjuList'
+            redirect: '/index/jinjuList'
         },
 
         {
@@ -30,12 +30,12 @@ export default new Router({
             component: NavBar,
             children: [
                 {
-                    path: 'JinjuList',
+                    path: 'jinjuList',
                     name: 'JinjuList',
                     component: JinjuList
                 },
                 {
-                    path: 'JinjuDetail/:id',
+                    path: 'jinjuDetail/:id',
                     name : 'JinjuDetail',
                     component: JinjuDetail
                 },
