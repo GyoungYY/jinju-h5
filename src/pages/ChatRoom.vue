@@ -29,7 +29,12 @@
         </div>
 
         <div class="send-div">
-            <el-input type="textarea" :autosize="{ minRows: 1, maxRows: 3}"v-model="sendText" @keyup.enter.native="sendMessage()" placeholder="光标在输入框内才能发送哦～"></el-input>
+            <el-input type="textarea" style="padding-right: 34px;" :autosize="{ minRows: 1, maxRows: 3}"
+                      v-model="sendText" @keyup.enter.native="sendMessage()" placeholder="回车发送时，光标要在输入框内哦～">
+            </el-input>
+            <span class="send-btn" @click="sendMessage()">
+                <span class="glyphicon glyphicon-send"></span>
+            </span>
         </div>
     </div>
 </template>
@@ -113,7 +118,7 @@
                 if (result.type == "2") {
                     this.userList = result.userList;
                 }
-                if(this.isFirstGet){
+                if (this.isFirstGet) {
                     this.getHistoryMessage();
                     this.isFirstGet = false;
                 }
@@ -259,5 +264,17 @@
     .self-content {
         background-color: lawngreen;
         float: right;
+    }
+
+    .send-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 10px 16px 10px 10px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #409EFF;
     }
 </style>
