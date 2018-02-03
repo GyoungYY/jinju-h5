@@ -96,7 +96,7 @@
             initWebSocket(userId) {
                 // let kaigeUrl = 'bt18088883.iok.la';
                 // const wsUrl = "ws://localhost:8888/chatsocket/" + userId;
-                const wsUrl = "ws://101.132.43.21:8888/chatsocket/" + userId;
+                const wsUrl = "ws://47.100.177.183:8888/chatsocket/" + userId;
                 this.websocket = new WebSocket(wsUrl);
                 //指定收到服务器数据后的回调函数
                 this.websocket.onmessage = event => {
