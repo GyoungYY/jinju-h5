@@ -62,10 +62,10 @@
                 </div>
             </div>
 
-            <div style="padding:10px;text-align: center;background-color: #fff;color:#409EFF;"
+            <div style="padding-bottom:10px;text-align: center;background-color: #fff;color:#409EFF;"
              @click="getCommentList(commentParams.pageIndex + 1)" v-if="!allLoaded && total>0">加载更多...
             </div>
-            <div style="text-align: center;color: #999;" v-if="allLoaded && total>0">已经到底啦～</div>
+            <div style="text-align: center;color: #999;padding-bottom:10px;" v-if="allLoaded && total>0">已经到底啦～</div>
         </div>
   </div>
 </template>
@@ -268,7 +268,7 @@ export default {
 }
 
 .comment-area {
-  padding: 20px 10px 20px 20px;
+  padding: 20px 10px 0 20px;
   background-color: #fff;
 }
 

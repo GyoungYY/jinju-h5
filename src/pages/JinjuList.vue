@@ -1,8 +1,5 @@
 <template>
-    <div class="list-container" v-loading="isLoading"
-        element-loading-text="拼命加载中"
-        element-loading-spinner="el-icon-loading"
-        element-loading-background="#fff">
+    <div class="list-container">
         <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore"
                      class="load-more">
 
