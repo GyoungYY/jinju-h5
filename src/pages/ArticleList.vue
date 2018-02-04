@@ -148,7 +148,7 @@ export default {
 
 <style scoped>
 .list-container {
-    min-height: 700px;
+    /* min-height: 700px; */
 }
 
 .box-card {

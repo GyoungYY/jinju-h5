@@ -1,5 +1,8 @@
 <template>
-    <div class="list-container">
+    <div class="list-container" v-loading="isLoading"
+        element-loading-text="拼命加载中"
+        element-loading-spinner="el-icon-loading"
+        element-loading-background="#fff">
         <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore"
                      class="load-more">
 
@@ -73,7 +76,8 @@ export default {
         3: "danger"
       },
 
-      allLoaded: false
+      allLoaded: false,
+      isLoading: false
     };
   },
   mounted() {
@@ -82,14 +86,19 @@ export default {
   methods: {
     //获取金句列表
     getJinjuList(page, type) {
-      if (page != 1 &&page > Math.ceil(this.total / this.searchParams.pageSize)) {
+      if (
+        page != 1 &&
+        page > Math.ceil(this.total / this.searchParams.pageSize)
+      ) {
         return;
       }
       this.searchParams.pageIndex = page;
       if (page === 1) {
         this.jinjuList = [];
       }
+      this.isLoading = true;
       JinjuInterface.getJinjuList(this.searchParams).then(data => {
+        this.isLoading = false;
         data.list.map(item => {
           item.typeShow = this.typeEnum[item.type];
           item.itemTagClass = this.tagClass[item.type];
@@ -202,7 +211,7 @@ export default {
 
 <style scoped>
 .list-container {
-    min-height: 700px;
+  /* min-height: 700px; */
 }
 
 .box-card {
