@@ -34,7 +34,7 @@
                     <img :src="item.photoUrl" alt="" style="width: 40px;height: 40px;border-radius:20px;cursor:pointer;" @click="gotoUserPage(item.userId)">
                     <div style="padding-left:20px;">
                         <div style="padding-bottom:3px;">
-                            <span style="padding:0 6px;">#{{total - (commentParams.pageIndex -1)*commentParams.pageSize - index }}</span>
+                            <span style="padding:0 6px;">#{{total - index }}</span>
                             <span class="item-username">{{item.username}}</span>
                         </div>
                         <span style="color:#aaa;">{{item.createTimeShow}}</span>
@@ -89,7 +89,7 @@ export default {
         parentId: 0
       },
       meiwenId: this.$route.params.id,
-      allLoaded: false,
+      allLoaded: false
     };
   },
   mounted() {
@@ -138,12 +138,24 @@ export default {
 
     //获取评论列表
     getCommentList(page) {
+      if (
+        page != 1 &&
+        page > Math.ceil(this.total / this.commentParams.pageSize)
+      ) {
+        return;
+      }
+      if (page === 1) {
+        this.commentList = [];
+      }
       this.commentParams.pageIndex = page;
       MeiwenInterface.getCommentList(this.commentParams)
         .then(data => {
-          this.commentList = data.list.map(item => {
+          data.list.map(item => {
             item.createTimeShow = formatTime.getFormatTime(item.createTime);
             return item;
+          });
+          data.list.forEach(item => {
+            this.commentList.push(item);
           });
           this.total = data.total;
           this.allLoaded =
