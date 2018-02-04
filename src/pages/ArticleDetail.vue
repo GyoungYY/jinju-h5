@@ -129,7 +129,7 @@ export default {
         .then(data => {
           this.$message.success("发表成功");
           this.myComment = "";
-          this.getCommentList(this.commentParams.pageIndex);
+          this.getCommentList(1);
         })
         .catch(reason => {
           this.$message.error(reason);
