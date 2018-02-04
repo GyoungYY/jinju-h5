@@ -134,9 +134,7 @@
                     return;
                 }
                 this.websocket.send(this.sendText);
-                setTimeout(function () {
-                    this.sendText = "";
-                },1000);
+                this.sendText = "";
             },
 
             //错误回调函数
