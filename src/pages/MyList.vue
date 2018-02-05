@@ -8,7 +8,7 @@
         </div>
         <div class="item-cell">个人信息</div>
         <div class="item-cell" @click="clickTab('publishMain')">发表金句</div>
-        <div style="padding: 8px 14px;text-align: center;margin-top: 6px;background-color: #fff;color: #f03;"
+        <div style="padding: 10px 14px;text-align: center;margin-top: 6px;background-color: #fff;color: #f03;"
              @click="logout()">退出登录
         </div>
     </div>
@@ -89,7 +89,7 @@
     }
 
     .item-cell {
-        padding: 8px 14px;
+        padding: 10px 14px;
         border-top: 1px solid #ddd;
         background-color: #fff;
     }
