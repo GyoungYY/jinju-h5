@@ -15,6 +15,8 @@ import ArticleDetail from '@/pages/ArticleDetail'
 
 import ChatRoom from '@/pages/ChatRoom'
 
+import PublishJinju from '@/pages/PublishJinju'
+
 Vue.use(Router)
 
 export default new Router({
@@ -68,7 +70,12 @@ export default new Router({
                     path: 'chatroom',
                     name: 'chatroom',
                     component: ChatRoom
-                }
+                },
+                {
+                    path: 'publishMain',
+                    name: 'publishMain',
+                    component: PublishJinju
+                },
             ]
         },
 
