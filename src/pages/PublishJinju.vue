@@ -28,6 +28,9 @@
             return {
                 userInfo: JSON.parse(sessionStorage.getItem("userInfo")),
                 rules: {
+                    type: [
+                        {required: true, message: "请选择金句类型", trigger: "change"}
+                    ],
                     content: [
                         {required: true, message: "请填写金句内容", trigger: "blur"}
                     ]
