@@ -10,7 +10,7 @@
                 </el-select>
             </el-form-item>
             <el-form-item label="金句内容" prop="content">
-                <el-input type="textarea" v-model="ruleForm.content" :autosize="{ minRows: 4, maxRows: 6}"
+                <el-input type="textarea" v-model="ruleForm.content" :autosize="{ minRows: 4, maxRows: 8}"
                           placeholder="请输入内容"
                           :maxlength="500"></el-input>
             </el-form-item>

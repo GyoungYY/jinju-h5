@@ -268,12 +268,12 @@ export default {
 }
 
 .comment-area {
-  padding: 20px 10px 0 20px;
+  padding: 20px 10px 1px 20px;
   background-color: #fff;
 }
 
 .comment-card {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-bottom: 4px;
   border-bottom: 1px solid #ddd;
 }
