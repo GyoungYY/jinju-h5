@@ -1,21 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import NavBar from '@/pages/NavBar'
-import MyList from '@/pages/MyList'
-import Login from '@/pages/Login'
+// import NavBar from '@/pages/NavBar'
+// import MyList from '@/pages/MyList'
+// import Login from '@/pages/Login'
+//
+// import JinjuList from '@/pages/JinjuList'
+// import JinjuDetail from '@/pages/JinjuDetail'
+//
+// import UserPage from '@/pages/UserPage'
+//
+// import ArticleList from '@/pages/ArticleList'
+// import ArticleDetail from '@/pages/ArticleDetail'
+//
+// import ChatRoom from '@/pages/ChatRoom'
+//
+// import PublishJinju from '@/pages/PublishJinju'
 
-import JinjuList from '@/pages/JinjuList'
-import JinjuDetail from '@/pages/JinjuDetail'
+const NavBar = () => import('@/pages/NavBar')
+const MyList = () => import('@/pages/MyList')
+const Login = () => import('@/pages/Login')
 
-import UserPage from '@/pages/UserPage'
+const JinjuList = () => import('@/pages/JinjuList')
+const JinjuDetail = () => import('@/pages/JinjuDetail')
 
-import ArticleList from '@/pages/ArticleList'
-import ArticleDetail from '@/pages/ArticleDetail'
+const UserPage = () => import('@/pages/UserPage')
 
-import ChatRoom from '@/pages/ChatRoom'
+const ArticleList = () => import('@/pages/ArticleList')
+const ArticleDetail = () => import('@/pages/ArticleDetail')
 
-import PublishJinju from '@/pages/PublishJinju'
+const ChatRoom = () => import('@/pages/ChatRoom')
+
+const PublishJinju = () => import('@/pages/PublishJinju')
 
 Vue.use(Router)
 
