@@ -12,7 +12,7 @@
             <div class="meiwen-summary">
                 {{articleDetail.summary}}
             </div>
-            <div class="ql-container ql-snow">
+            <div class="ql-container ql-snow" style="font-size: 16px;">
                 <div class="ql-editor">
                     <div v-html="articleDetail.content" style=""></div>
                 </div>
