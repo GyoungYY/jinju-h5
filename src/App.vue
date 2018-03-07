@@ -26,4 +26,12 @@
     img{
         max-width: 100%;
     }
+
+    .ql-align-center{
+        text-align: center;
+    }
+
+    #cnzz_stat_icon_1273048110{
+        display: none;
+    }
 </style>
