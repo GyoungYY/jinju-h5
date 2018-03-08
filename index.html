@@ -1,35 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width" name="viewport">
+    <meta content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width"
+          name="viewport">
+    <meta name="description" content="金句猫 - 最专业、最内涵的短内容平台">
     <link rel="shortcut icon" href="static/favicon.ico">
-    <title>金句猫 - 最专业、最内涵的短句子平台</title>
+    <title>金句猫 - 最专业、最内涵的短内容平台</title>
 
-      <!--bootstrap cdn-->
-      <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--bootstrap cdn-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-      <!--element-ui theme cdn-->
-      <link rel="stylesheet" href="https://unpkg.com/element-ui@2.0.7/lib/theme-chalk/index.css">
-
-
-      <!-- 先引入 Vue -->
-      <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
-      <!-- 引入element-ui组件库 -->
-      <script src="https://unpkg.com/element-ui@2.0.7/lib/index.js"></script>
-
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <!--element-ui theme cdn-->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2.0.7/lib/theme-chalk/index.css">
 
 
-    <!--jquery and bootstrap cdn-->
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- 先引入 Vue -->
+    <script src="https://unpkg.com/vue@2.5.2/dist/vue.js"></script>
+    <!-- 引入element-ui组件库 -->
+    <script src="https://unpkg.com/element-ui@2.0.7/lib/index.js"></script>
 
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1273048110'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D1273048110%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
 
-  </body>
+
+<!--jquery and bootstrap cdn-->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+<!--友盟数据统计-->
+<script
+    type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1273048110'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/stat.php%3Fid%3D1273048110%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!--百度自动推送链接-->
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+</body>
 </html>
