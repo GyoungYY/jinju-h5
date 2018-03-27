@@ -112,15 +112,23 @@
 
 <style scoped>
     .login-form {
-        min-height: 650px;
-        padding: 30px;
+        padding: 60px 30px 30px 30px;
         background-color: #fff;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-image: url("../assets/bg.jpg");
+        background-size: 100% 100%;
+        background-position: center center;
     }
 
     .tag-line {
         margin-bottom: 20px;
         font-size: 20px;
         text-align: center;
+        color: #fff;
     }
 
     .tag-line > span {
